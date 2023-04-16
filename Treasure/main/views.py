@@ -7,9 +7,12 @@ from .models import Progress
 # Create your views here.
 
 def home(request):
-    a= Progress.objects.get(user=request.user)
-    context={"progress":a}
-    return render(request,"main_page.html", context)
+    if request.user.is_authenticated:
+        a= Progress.objects.get(user=request.user)
+        context={"progress":a}
+        return render(request,"main_page.html", context)
+    else:
+        return redirect("login")
 def puzzle1(request, ans):
     a= Progress.objects.get(user=request.user)
     if(ans==1):
