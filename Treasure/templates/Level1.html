@@ -1,0 +1,144 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            body{
+                 background-image:url('{% static "scavengerhunt .jpg" %}'); 
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+            h2{
+                color:white;
+                background-color:rgba(0,0,0,0.5);
+            }
+            #clue{
+                color:black;
+                position: relative;
+                border-radius:10px;
+                height:50px;
+                top:1px;
+                text-align:center;
+            }
+            #clue:hover{
+                background-color:black;
+                color:white;
+                cursor:grab;
+            }
+            #select{
+                
+                cursor:grab;
+                position: relative;
+                border-radius:100%;
+                left:28px;
+                top:443px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                padding:50px;
+            }
+            #fake1:hover{
+                background-color:rgba(0,0,0,0.3);
+            }
+            #select:hover{
+                background-color:rgba(0,0,0,0.3);
+            }
+            
+            #fake1{
+                
+                cursor:grab;
+                position: relative;
+                border-radius:100%;
+                left:158px;
+                top:20px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                padding:20px;
+            }
+            #fake2{
+                
+                cursor:grab;
+                position: relative;
+                border-radius:100%;
+                left:628px;
+                top:190px;
+                border: none;
+                outline: none;
+                background-color: transprent;
+                padding:43px;
+            }
+            #fake2:hover{
+                background-color:rgba(0,0,0,0.3);
+            }
+            #fake3{
+                
+                cursor:grab;
+                position: relative;
+                border-radius:100%;
+                left:-67px;
+                top:460px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                padding:24px;
+            }
+            #fake3:hover{
+                background-color:rgba(0,0,0,0.3);
+            }
+            #fake4{
+                
+                cursor:grab;
+                position: relative;
+                border-radius:100%;
+                left:63px;
+                top:367px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                padding:30px;
+            }
+            #fake4:hover{
+                background-color:rgba(0,0,0,0.3);
+            }
+            #boat{
+                position: relative;
+                height:170px;
+                width:410px;
+                top: 64%;
+                left: 14%;
+            }
+           
+            </style>
+</head>
+<body>
+   
+<h2 id='cL'>Hint:</h2>
+<button id='clue' onclick="clue()" ><h1>clue</h1></button>
+<!-- <button type="button" id='select'  ></button> 
+<button type="button" id='fake1'  ></button>
+<button type="button" id='fake2'  ></button>
+<button type="button" id='fake3'  ></button>
+<button type="button" id='fake4'  ></button> -->
+<img id="boat" src="{% static 'boat1.png' %}" onclick="ans()">
+</body>
+<script>
+    function myFunction() {
+  document.getElementById(".hidden-button").click(); // Click on the checkbox
+}
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+   }
+
+    async function clue(){
+    var t=10000;
+    var a=document.getElementById('cL').innerHTML= "Hint:I am vehicle of the water...Made by wood";
+    await sleep(5000);
+    var b=document.getElementById('cL').innerHTML="Hint:";
+}
+
+function ans(){
+    alert("You have found the object");
+    window.location.href = "/puzzle1/1";
+}
+    </script>

@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slide Puzzle</title>
+        <style>
+            body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #595a5a;
+}
+
+#title {
+    height: 150px;
+    width: 250px;
+}
+
+#board {
+    width: 360px;
+    height: 360px;
+    background-color: rgb(97, 99, 99);
+    border: 10px solid #a3ae0c;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board img {
+    width: 118px;
+    height: 118px;
+    border: 1px solid #464747;
+}
+#submit{
+    width:90px;
+    height:50px;
+    border-radius: 10px;
+}
+#submit:hover{
+    background-color: black;
+    color:white;
+}
+        </style>
+        
+    </head>
+
+    <body>
+        <img id="title" src="{% static 'l2.png' %}">
+        <div id="board">
+        </div>
+        <h1>Turns: <span id="turns">0</span></h1>
+        <button id="submit" onclick="nocheck()">Submit</button>
+    
+<script type="text/javascript">
+var rows = 3;
+var columns = 3;
+
+var currTile;
+var otherTile; //blank tile
+
+var turns = 0;
+
+// var imgOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+//var imgOrder = ["4", "2", "8", "5", "1", "6", "7", "9", "3"];
+var imgOrder = ["1", "3", "6", "4", "2", "5", "7", "8", "9"];
+
+window.onload = function() {
+    for (let r=0; r < rows; r++) {
+        for (let c=0; c < columns; c++) {
+            path="http://127.0.0.1:8000/"
+            //<img id="0-0" src="1.jpg">
+            let tile = document.createElement("img");
+            tile.id = r.toString() + "-" + c.toString();
+            tile.src = path+"static/" +imgOrder.shift() + ".jpg";
+
+            //DRAG FUNCTIONALITY
+            tile.addEventListener("dragstart", dragStart);  //click an image to drag
+            tile.addEventListener("dragover", dragOver);    //moving image around while clicked
+            tile.addEventListener("dragenter", dragEnter);  //dragging image onto another one
+            tile.addEventListener("dragleave", dragLeave);  //dragged image leaving anohter image
+            tile.addEventListener("drop", dragDrop);        //drag an image over another image, drop the image
+            tile.addEventListener("dragend", dragEnd);      //after drag drop, swap the two tiles
+
+            document.getElementById("board").append(tile);
+
+        }
+    }
+
+}
+
+function dragStart() {
+    currTile = this; //this refers to the img tile being dragged
+}
+
+function dragOver(e) {
+    e.preventDefault();
+}
+
+function dragEnter(e) {
+    e.preventDefault();
+}
+
+function dragLeave() {
+
+}
+
+function dragDrop() {
+    otherTile = this; //this refers to the img tile being dropped on
+}
+
+function dragEnd() {
+    if (!otherTile.src.includes("3.jpg")) {
+        return;
+    }
+
+    let currCoords = currTile.id.split("-"); //ex) "0-0" -> ["0", "0"]
+    let r = parseInt(currCoords[0]);
+    let c = parseInt(currCoords[1]);
+
+    let otherCoords = otherTile.id.split("-");
+    let r2 = parseInt(otherCoords[0]);
+    let c2 = parseInt(otherCoords[1]);
+
+    let moveLeft = r == r2 && c2 == c-1;
+    let moveRight = r == r2 && c2 == c+1;
+
+    let moveUp = c == c2 && r2 == r-1;
+    let moveDown = c == c2 && r2 == r+1;
+
+    let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
+
+    if (isAdjacent) {
+        let currImg = currTile.src;
+        let otherImg = otherTile.src;
+
+        currTile.src = otherImg;
+        otherTile.src = currImg;
+
+        turns += 1;
+        document.getElementById("turns").innerText = turns;
+    }
+}
+    function nocheck(){
+        tile1=document.getElementById("0-0");
+        tile2=document.getElementById("0-1");
+        tile3=document.getElementById("0-2");
+        tile4=document.getElementById("1-0");
+        tile5=document.getElementById("1-1");
+        tile6=document.getElementById("1-2");
+        tile7=document.getElementById("2-0");
+        tile8=document.getElementById("2-1");
+        tile9=document.getElementById("2-2");
+        path="http://127.0.0.1:8000/static/"
+        if(tile1.src==path+"1.jpg"&&tile2.src==path+"2.jpg"&&tile3.src==path+"3.jpg"&&tile4.src==path+"4.jpg"&&tile5.src==path+"5.jpg"&&tile6.src==path+"6.jpg"&&tile7.src==path+"7.jpg"&&tile8.src==path+"8.jpg"&&tile9.src==path+"9.jpg"){
+        alert("You have won");
+        window.location.href = "/puzzle2/1";
+        }
+        else 
+        alert("Puzzle is not solved")
+        console.log(tile6);
+    }
+
+
+    </script>
+
+    </body>
+    </html>

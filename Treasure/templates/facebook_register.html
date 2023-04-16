@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<style>
+		
+div{
+    justify-content:center;
+    display:flex;
+}
+h2{
+    font-size:50px;
+    text-align:center;
+}
+body{
+    background-color:lightblue;
+}
+form{
+    text-align:centre;
+}
+	</style>
+</head>
+<body>
+
+
+<h2>Registration Form</h2>
+<div>
+<form method="post" >
+	{% csrf_token %}
+	{}
+	{{ register_form}}
+	<!-- Name: <input type="text" name="name" id="name">
+	<span></span><br><br>
+	Email: <input type="email" name="email" id="email">
+	<span></span><br><br>
+	Password: <input type="password" name="password1" id="password1">
+	Password confirm: <input type="password" name="password2" id="password2">
+	<span></span><br><br> -->
+	<input type="submit" name="submit" value="Register">
+	
+</form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+  
+<!DOCTYPE >
+<html>
+<head>
+    <title>FaceBook Login</title>
+    <style>
+        body{
+            background-color:#fff1e1;
+            text-align:center;
+
+        }
+        div{
+            text-align:centre;
+            margin-top: auto;
+            margin-botton: auto;
+            padding: 200px;
+        }
+        label{
+            color:#d2601a;
+            border-radius: 100px;
+        }
+        button{
+            width:250px;
+            background-color:#1d3c45;
+            border-radius: 5px;
+            color:white
+        }
+        button:hover {
+            background-color: green; 
+            color:#1d3c45 ;
+        }
+        a{
+            color:white
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+    <h2 style="color:#d2601a"> Login with Email</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ login_form }}
+        <!-- <label style="padding-left:15px">Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <br><br> -->
+        <button type="submit" name="login">Login</button>
+    </form>
+    </div>
+</body>
+</html>

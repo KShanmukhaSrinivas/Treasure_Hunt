@@ -1,0 +1,90 @@
+{% load static %}
+<html>
+  <head>
+    <style>
+      body {
+        background-image: url('{% static "Admin_page.png" %}');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+      }
+      button {
+        color: red;
+        position: relative;
+
+        border-radius: 100%;
+      }
+      button:hover {
+        background-color: red;
+        color: white;
+        cursor: grab;
+      }
+      #l1 {
+        left: 20px;
+        top: 475px;
+        padding: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      #l2 {
+        left: 170px;
+        top: 55px;
+        padding: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      #l3 {
+        left: 350px;
+        top: 275px;
+        padding: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      #l4 {
+        left: 500px;
+        top: 370px;
+        padding: 30px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      id="l1"
+      {% if progress.level1 is False and progress.level2 is False and progress.level3 is False %}
+
+      {% elif progress.level1 is False %}
+      disabled
+      {% else %}
+      {% endif %}
+      onclick="window.location.href='/puzzle1/0'"
+    >
+      <h1>1</h1>
+    </button>
+
+    <button
+      id="l2"
+      type="button"
+      {% if progress.level1 is True%}
+      {% else %}
+      disabled
+      {% endif %}
+      onclick="window.location.href='/puzzle2/0'"
+    >
+      <h1>2</h1>
+    </button>
+
+    <button
+      id="l3"
+      type="button"
+      {% if progress.level1 is True and progress.level2 is True %}
+      {% else %}
+      disabled
+      {% endif %}
+      onclick="window.location.href='/puzzle3/0'"
+    >
+      <h1>3</h1>
+    </button>
+  </body>
+</html>
