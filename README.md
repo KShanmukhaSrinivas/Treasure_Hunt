@@ -8,3 +8,8 @@ can start with the first level, which on completion leads to the next level.
 The First level consists of finding the hidden object using the clue given
 The second level consists of solving the picture puzzel by placing all parts of a picture in correct order
 The level consists of selecting the correct door based on the situation.
+
+# Login
+![WhatsApp Image 2023-04-17 at 07 24 06](https://user-images.githubusercontent.com/72618105/232359713-52901756-dab4-4718-8cf4-adc766cab234.jpeg)
+
+# Register
