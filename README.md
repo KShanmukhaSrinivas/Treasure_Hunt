@@ -13,3 +13,6 @@ The level consists of selecting the correct door based on the situation.
 ![WhatsApp Image 2023-04-17 at 07 24 06](https://user-images.githubusercontent.com/72618105/232359713-52901756-dab4-4718-8cf4-adc766cab234.jpeg)
 
 # Register
+![WhatsApp Image 2023-04-17 at 07 26 39](https://user-images.githubusercontent.com/72618105/232360144-b2202767-3cae-4cd8-b130-8aab0ca1d565.jpeg)
+
+# MainPage
