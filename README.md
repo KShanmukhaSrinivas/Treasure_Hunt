@@ -18,11 +18,13 @@ The level consists of selecting the correct door based on the situation.
 # MainPage
 ![WhatsApp Image 2023-04-17 at 07 33 26](https://user-images.githubusercontent.com/72618105/232360787-e788a4df-12d7-48e7-87e2-a6641d0fcef9.jpeg)
 
-# level1
+# level1: Finding the object
 ![WhatsApp Image 2023-04-17 at 07 35 09](https://user-images.githubusercontent.com/72618105/232361035-f7ef3e70-841f-476a-8d33-5e0fe0dce394.jpeg)
 
-#level2
+#level2: Puzzle Solving
 ![WhatsApp Image 2023-04-17 at 07 37 21](https://user-images.githubusercontent.com/72618105/232361235-60e26c5c-9ab1-4420-9fe3-abe3e6c4af67.jpeg)
 
-#level3
+#level3: Choose the right door
+![WhatsApp Image 2023-04-17 at 07 39 32](https://user-images.githubusercontent.com/72618105/232361596-9a228b95-7dcb-4d94-be9d-e5051bdd457a.jpeg)
+
 
